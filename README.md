@@ -1,28 +1,25 @@
-# MUTR
-This repository is an official implementation of the paper ['Referred by Multi-Modality: A Unified Temporal Transformer for Video Object Segmentation'](https://arxiv.org/pdf/2305.03048.pdf).
+# MUTR: A Unified Multi-Modal Transformer for Video Object Segmentation
+
+Official implementation of ['Referred by Multi-Modality: A Unified Temporal Transformer for Video Object Segmentation'](https://arxiv.org/pdf/2305.03048.pdf).
 
 
-<div align="center">
+<!-- <div align="center">
 <h1>
 <b>
 Referred by Multi-Modality: A Unified Temporal <br> Transformer for Video Object Segmentation
 </b>
 </h1>
-</div>
+</div> -->
+
+## Introduction
+We propose **MUTR**, a **M**ulti-modal **U**nified **T**emporal transformer for **R**eferring video object segmentation. With a unified framework for the first time, MUTR adopts a DETR-style transformer and is capable of segmenting video objects designated by either text or audio reference. Specifically, we introduce two strategies to fully explore the temporal relations between videos and multi-modal signals, which are low-level temporal aggregation and high-level temporal interaction.
+On Ref-YouTube-VOS and AVSBench datasets with respective text and audio references, MUTR achieves **+4.2\%** and **+4.2\%** J&F improvements to *state-of-the-art* methods, demonstrating our significance for unified multi-modal VOS.
 
 <p align="center"><img src="docs/network.png" width="800"/></p>
 
-## Abstract
-Recently, video object segmentation (VOS) referred by multi-modal signals, e.g., language and audio, has evoked increasing attention in both industry and academia. It is challenging for exploring the semantic alignment within modalities and the visual correspondence across frames.
-However, existing methods adopt separate network architectures for different modalities, and neglect the inter-frame temporal interaction with references. In this paper, we propose **MUTR**, a **M**ulti-modal **U**nified **T**emporal transformer for **R**eferring video object segmentation. With a unified framework for the first time, MUTR adopts a DETR-style transformer and is capable of segmenting video objects designated by either text or audio reference. Specifically, we introduce two strategies to fully explore the temporal relations between videos and multi-modal signals. 
-Firstly, for low-level temporal aggregation before the transformer, we enable the multi-modal references to capture multi-scale visual cues from consecutive video frames. This effectively endows the text or audio signals with temporal knowledge and boosts the semantic alignment between modalities.
-Secondly, for high-level temporal interaction after the transformer, we conduct inter-frame feature communication for different object embeddings, contributing to better object-wise correspondence for tracking along the video.
-On Ref-YouTube-VOS and AVSBench datasets with respective text and audio references, MUTR achieves **+4.2\%** and **+4.2\%** J&F improvements to *state-of-the-art* methods, demonstrating our significance for unified multi-modal VOS.
-
 ## Update
 * **TODO**: Release the code and model checkpoint of MUTR on AV-VOS 📌.
-* We release the model checkpoint of MUTR on RVOS 🔥. 
-* We release the code of MUTR on RVOS 🔥. 
+* We release the code and checkpoints of MUTR on RVOS 🔥.
 
 ## Requirements
 
