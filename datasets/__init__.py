@@ -3,8 +3,6 @@ import torchvision
 
 from .ytvos import build as build_ytvos
 from .davis import build as build_davis
-from .a2d import build as build_a2d
-from .jhmdb import build as build_jhmdb
 from .refexp import build as build_refexp
 from .refexp2seq import build as build_seq_refexp
 from .concat_dataset import build as build_joint
@@ -25,13 +23,6 @@ def build_dataset(dataset_file: str, image_set: str, args):
         return build_ytvos(image_set, args)
     if dataset_file == 'davis':
         return build_davis(image_set, args)
-    if dataset_file == 'a2d':
-        return build_a2d(image_set, args)
-    if dataset_file == 'jhmdb':
-        return build_jhmdb(image_set, args)
-    # for pretraining
-    # if dataset_file == "refcoco" or dataset_file == "refcoco+" or dataset_file == "refcocog":
-    #     return build_refexp(dataset_file, image_set, args)
     if dataset_file == "refcoco" or dataset_file == "refcoco+" or dataset_file == "refcocog":
         return build_seq_refexp(dataset_file, image_set, args)
     # for joint training of refcoco and ytvos
