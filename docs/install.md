@@ -17,7 +17,7 @@ We test the code in the following environments, other versions may also be compa
 First, clone the repository locally.
 
 ```
-git clone https://github.com/wjn922/ReferFormer.git
+https://github.com/OpenGVLab/MUTR.git
 ```
 
 Then, install Pytorch 1.8.1 using the conda environment.
