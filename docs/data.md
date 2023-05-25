@@ -33,7 +33,7 @@ MUTR
 ```
 
 
-## Ref-Youtube-VOS
+## Ref-YouTube-VOS
 
 Download the dataset from the competition's website [here](https://competitions.codalab.org/competitions/29139#participate-get_data).
 Then, extract and organize the file. We expect the directory structure to be the following:
@@ -51,7 +51,7 @@ MUTR
 │   │   │   ├── JPEGImages
 ```
 
-## Ref-DAVIS17
+## Ref-DAVIS 2017
 
 Downlaod the DAVIS2017 dataset from the [website](https://davischallenge.org/davis2017/code.html). Note that you only need to download the two zip files `DAVIS-2017-Unsupervised-trainval-480p.zip` and `DAVIS-2017_semantics-480p.zip`.
 Download the text annotations from the [website](https://www.mpi-inf.mpg.de/departments/computer-vision-and-machine-learning/research/video-segmentation/video-object-segmentation-with-language-referring-expressions).
