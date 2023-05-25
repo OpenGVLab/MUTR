@@ -10,8 +10,7 @@ else
 fi
 CPUS_PER_TASK=${CPUS_PER_TASK:-12}
 
-BACKBONE=$1 # ResNet, Swin, Video_Swin
-
+PY_ARGS=${@:2}  # Any other arguments 
 python3 -m torch.distributed.launch --nproc_per_node=${GPUS_PER_NODE} --master_port=${PORT} --use_env \
     train.py \
     --with_box_refine \
@@ -20,5 +19,4 @@ python3 -m torch.distributed.launch --nproc_per_node=${GPUS_PER_NODE} --master_p
     --batch_size 2 \
     --epochs 12 \
     --lr_drop 8 10 \
-    --lr_backbone 6e-6 \
-    --backbone ${BACKBONE} \
+    PY_ARGS=${@:2}
