@@ -1,4 +1,4 @@
-## Ref-DAVIS17
+## Ref-DAVIS 2017
 
 ### Model Zoo
 
