@@ -1,5 +1,5 @@
 # MUTR
-Official implementation of ['Referred by Multi-Modality: A Unified Temporal Transformer for Video Object Segmentation'](https://arxiv.org/pdf/2305.03048.pdf).
+This repository is an official implementation of the paper ['Referred by Multi-Modality: A Unified Temporal Transformer for Video Object Segmentation'](https://arxiv.org/pdf/2305.03048.pdf).
 
 
 <div align="center">
