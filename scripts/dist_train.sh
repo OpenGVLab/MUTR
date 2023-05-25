@@ -19,4 +19,4 @@ python3 -m torch.distributed.launch --nproc_per_node=${GPUS_PER_NODE} --master_p
     --batch_size 2 \
     --epochs 12 \
     --lr_drop 8 10 \
-    PY_ARGS=${@:2}
+    ${PY_ARGS}
