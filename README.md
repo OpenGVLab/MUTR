@@ -64,6 +64,11 @@ MUTR/
 ...
 ```
 
+## Get Started
+
+Please see [Ref-YouTube-VOS](docs/Ref-YouTube-VOS.md), [Ref-DAVIS 2017](docs/Ref-DAVIS2017.md) for details.
+
+
 ## Model Zoo and Results
 
 **Note:** 
@@ -75,7 +80,7 @@ MUTR/
 
 
 
-### Ref-Youtube-VOS
+### Ref-YouTube-VOS
 
 To evaluate the results, please upload the zip file to the [competition server](https://competitions.codalab.org/competitions/29139#participate-submit_results).
 
