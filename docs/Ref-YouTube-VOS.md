@@ -14,6 +14,18 @@ To evaluate the results, please upload the zip file to the [competition server](
 | ConvNext-L | 66.7 | 64.8 | 68.7 | [model](https://drive.google.com/file/d/1sYH6JpsqdB0kwW4qkOIcQGAdHsyWyXEL/view?usp=sharing) | [link]() |
 | ConvMAE-B | 66.9 | 64.7 | 69.1 | [model](https://drive.google.com/file/d/1kC2052ao_49P_ecKWib5oZEQpxeTvRjq/view?usp=sharing) | [link]() |
 
+### Training
+
+```
+./scripts/dist_train.sh  --backbone [backbone] --backbone_pretrained [/path/to/backbone_pretrained_weight] [other args]
+```
+
+For example, training the Video-Swin-Tiny model, run the following command:
+
+```
+./scripts/dist_train.sh --backbone video_swin_t_p4w7 --backbone_pretrained video_swin_pretrained/swin_tiny_patch244_window877_kinetics400_1k.pth
+```
+
 ### Inference & Evaluation
 
 
@@ -31,15 +43,4 @@ For example, evaluating the Swin-Large model, run the following command:
 
 To evaluate the results, please upload the zip file to the [competition server](https://competitions.codalab.org/competitions/29139#participate-submit_results).
 
-### Training
 
-
-```
-./scripts/dist_train_test_ytvos_scratch.sh [/path/to/output_dir] --backbone [backbone] --backbone_pretrained [/path/to/backbone_pretrained_weight] [other args]
-```
-
-For example, training the Video-Swin-Tiny model, run the following command:
-
-```
-./scripts/dist_train_test_ytvos.sh ytvos_dirs/video_swin_tiny_scratch --backbone video_swin_t_p4w7 --backbone_pretrained video_swin_pretrained/swin_tiny_patch244_window877_kinetics400_1k.pth
-```
