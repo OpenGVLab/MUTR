@@ -1,6 +1,6 @@
-# MUTR: A Unified Multi-Modal Transformer for Video Object Segmentation
+# MUTR: A Unified Temporal Transformer for Multi-Modal Video Object Segmentation
 
-Official implementation of ['Referred by Multi-Modality: A Unified Temporal Transformer for Video Object Segmentation'](https://arxiv.org/pdf/2305.03048.pdf).
+Official implementation of ['Referred by Multi-Modality: A Unified Temporal Transformer for Video Object Segmentation'](https://github.com/OpenGVLab/MUTR/blob/main/MUTR_Arxiv.pdf).
 
 
 <!-- <div align="center">
@@ -12,14 +12,14 @@ Referred by Multi-Modality: A Unified Temporal <br> Transformer for Video Object
 </div> -->
 
 ## Introduction
-We propose **MUTR**, a **M**ulti-modal **U**nified **T**emporal transformer for **R**eferring video object segmentation. With a unified framework for the first time, MUTR adopts a DETR-style transformer and is capable of segmenting video objects designated by either text or audio reference. Specifically, we introduce two strategies to fully explore the temporal relations between videos and multi-modal signals, which are low-level temporal aggregation and high-level temporal interaction.
-On Ref-YouTube-VOS and AVSBench datasets with respective text and audio references, MUTR achieves **+4.2\%** and **+4.2\%** J&F improvements to *state-of-the-art* methods, demonstrating our significance for unified multi-modal VOS.
+We propose **MUTR**, a **M**ulti-modal **U**nified **T**emporal transformer for **R**eferring video object segmentation. With a unified framework for the first time, MUTR adopts a DETR-style transformer and is capable of segmenting video objects designated by either text or audio reference. Specifically, we introduce two strategies to fully explore the temporal relations between videos and multi-modal signals, which are low-level temporal aggregation (MTA) and high-level temporal interaction (MTI).
+On Ref-YouTube-VOS and AVSBench with respective text and audio references, MUTR achieves **+4.2\%** and **+4.2\%** J&F improvements to *state-of-the-art* methods, demonstrating our significance for unified multi-modal VOS.
 
 <p align="center"><img src="docs/network.png" width="800"/></p>
 
 ## Update
-* **TODO**: Release the code and model checkpoint of MUTR on AV-VOS 📌.
-* We release the code and checkpoints of MUTR on RVOS 🔥.
+* **TODO**: Release the code and checkpoints on AV-VOS with audio reference 📌.
+* We release the code and checkpoints of MUTR on RVOS with language reference 🔥.
 
 ## Requirements
 
@@ -111,3 +111,5 @@ As described in the paper, we report the results using the model trained on Ref-
 | ConvNext-L | 69.0 | 65.6 | 72.4 | [model](https://drive.google.com/file/d/1sYH6JpsqdB0kwW4qkOIcQGAdHsyWyXEL/view?usp=sharing) | 
 | ConvMAE-B | 69.2 | 65.6 | 72.8 | [model](https://drive.google.com/file/d/1kC2052ao_49P_ecKWib5oZEQpxeTvRjq/view?usp=sharing) 
 
+## Contact
+If you have any question about this project, please feel free to contact tattoo.ysl@gmail.com.
