@@ -1,6 +1,6 @@
 # MUTR: A Unified Temporal Transformer for Multi-Modal Video Object Segmentation
 
-Official implementation of ['Referred by Multi-Modality: A Unified Temporal Transformer for Video Object Segmentation'](https://github.com/OpenGVLab/MUTR/blob/main/MUTR_Arxiv.pdf).
+Official implementation of ['Referred by Multi-Modality: A Unified Temporal Transformer for Video Object Segmentation'](https://arxiv.org/pdf/2305.16318.pdf).
 
 
 <!-- <div align="center">
