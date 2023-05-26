@@ -109,7 +109,26 @@ As described in the paper, we report the results using the model trained on Ref-
 | Video-Swin-S | 66.1 | 62.6 | 69.8 | [model](https://drive.google.com/file/d/1-lYh3trE9TcaKtes-ETWUCCalieudg1t/view?usp=sharing) |
 | Video-Swin-B | 66.4 | 62.8 | 70.0 | [model](https://drive.google.com/file/d/1_btRlsRMOpwGceKTCeeW5v7S14Zq7LGX/view?usp=sharing) |
 | ConvNext-L | 69.0 | 65.6 | 72.4 | [model](https://drive.google.com/file/d/1sYH6JpsqdB0kwW4qkOIcQGAdHsyWyXEL/view?usp=sharing) | 
-| ConvMAE-B | 69.2 | 65.6 | 72.8 | [model](https://drive.google.com/file/d/1kC2052ao_49P_ecKWib5oZEQpxeTvRjq/view?usp=sharing) 
+| ConvMAE-B | 69.2 | 65.6 | 72.8 | [model](https://drive.google.com/file/d/1kC2052ao_49P_ecKWib5oZEQpxeTvRjq/view?usp=sharing) |
+
+
+## Acknowledgement
+
+This repo is based on [ReferFormer](https://github.com/wjn922/ReferFormer/tree/main). We also refer to the repositories [Deformable DETR](https://github.com/ashkamath/mdetr) and [MTTR](https://github.com/fundamentalvision/Deformable-DETR). Thanks for their wonderful works.
+
+
+## Citation
+
+```
+@misc{yan2023referred,
+      title={Referred by Multi-Modality: A Unified Temporal Transformer for Video Object Segmentation}, 
+      author={Shilin Yan and Renrui Zhang and Ziyu Guo and Wenchao Chen and Wei Zhang and Hongyang Li and Yu Qiao and Zhongjiang He and Peng Gao},
+      year={2023},
+      eprint={2305.16318},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
+```
 
 ## Contact
 If you have any question about this project, please feel free to contact tattoo.ysl@gmail.com.
