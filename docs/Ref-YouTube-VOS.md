@@ -28,19 +28,19 @@ For example, training the Video-Swin-Tiny model, run the following command:
 
 ### Inference & Evaluation
 
-
-First, inference using the trained model.
-
+Inference using the trained model.
 ```
 ./scripts/dist_test_ytvos.sh [backbone] 
 ```
+
 For example, evaluating the Swin-Large model, run the following command:
 
 ```
 ./scripts/dist_test_ytvos.sh swin_l_p4w7
 ```
 
+To evaluate the results, please upload the zip file to the [competition server](https://codalab.lisn.upsaclay.fr/competitions/3282#participate-submit_results).
 
-To evaluate the results, please upload the zip file to the [competition server](https://competitions.codalab.org/competitions/29139#participate-submit_results).
+Note that, if you use the weights we provide, you should put the weights in the corresponding path.  ./results/[backbone]/ckpt/backbone_weight.pth
 
 
