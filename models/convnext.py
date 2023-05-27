@@ -122,11 +122,11 @@ class ConvnextBackbone(nn.Module):
 
         if backbone == 'convnext_large':
             backbone = convnext_large(args.backbone_pretrained, out_indices=out_indices,
-                                      drop_path_rate=args.drop_path_rate)
+                                      drop_path_rate=0.5)
             embed_dim = 192
         elif backbone == 'convnext_xxlarge':
             backbone = convnext_xxlarge(args.backbone_pretrained, out_indices=out_indices,
-                                        drop_path_rate=args.drop_path_rate)
+                                        drop_path_rate=0.5)
             embed_dim = 384
         else:
             raise NotImplementedError
