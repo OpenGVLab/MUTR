@@ -50,7 +50,9 @@ def main(args):
     args.dataset_file = "davis"
     args.masks = True
     args.batch_size == 1
-
+    
+    if len(os.listdir(os.path.join('results', args.backbone, 'ckpt'))) == 1:
+        args.test_num_ckpt = -1
     inference_ckpt = sorted(os.listdir(os.path.join('results', args.backbone, 'ckpt')))[args.test_num_ckpt]
     print(inference_ckpt)
 
