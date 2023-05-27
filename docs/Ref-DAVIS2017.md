@@ -27,3 +27,4 @@ For example, evaluating the Swin-Large model, run the following command:
 ```
 ./scripts/dist_test_davis.sh --backbone swin_l_p4w7
 ```
+Note that, if you use the weights we provide, you should put the weights in the corresponding path.  ./results/[backbone]/ckpt/backbone_weight.pth
