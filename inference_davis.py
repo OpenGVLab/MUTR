@@ -1,5 +1,5 @@
 '''
-Inference code for ReferFormer, on Ref-Youtube-VOS
+Inference code for MUTR, on Ref-Youtube-VOS
 Modified from DETR (https://github.com/facebookresearch/detr)
 Ref-Davis17 does not support visualize
 '''
