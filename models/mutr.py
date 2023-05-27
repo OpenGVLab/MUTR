@@ -1,5 +1,5 @@
 """
-ReferFormer model class.
+MUTR model class.
 Modified from DETR (https://github.com/facebookresearch/detr)
 """
 import torch
