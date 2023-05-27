@@ -1,6 +1,6 @@
 ### Ref-YouTube-VOS
 
-To evaluate the results, please upload the zip file to the [competition server](https://competitions.codalab.org/competitions/29139#participate-submit_results).
+To evaluate the results, please upload the zip file to the [competition server](https://codalab.lisn.upsaclay.fr/competitions/3282#participate-submit_results).
 
 
 | Backbone| J&F | J | F | Model | Submission | 
