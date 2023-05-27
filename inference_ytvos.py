@@ -62,7 +62,8 @@ def main(args):
 
     args.output_dir = os.path.join('results', args.backbone, 'eval', args.dataset_file)
     os.makedirs(args.output_dir, exist_ok=True)
-
+    if len(os.listdir(os.path.join('results', args.backbone, 'ckpt'))) == 1:
+        args.test_num_ckpt = -1
     inference_ckpt = sorted(os.listdir(os.path.join('results', args.backbone, 'ckpt')))[args.test_num_ckpt]
     print(inference_ckpt)
 
