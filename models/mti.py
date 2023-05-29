@@ -179,10 +179,7 @@ class CrossAttentionLayer(nn.Module):
 
 
 class MTI(nn.Module):
-    """
-    capturing the T-series information of the object queries return by Deformable Transformers
-    Specifically, The query for decoder is Language queries
-    """
+    
     def __init__(
         self,
         input_dim: int,
@@ -215,18 +212,17 @@ class MTI(nn.Module):
         self.num_heads = config['nheads']
         self.num_layers = config['dec_layers']
 
-        # self.training = mode
+    
 
-        ### for decoder ------------------------------------------
         self.transformer_self_attention_layers = nn.ModuleList()
         self.transformer_cross_attention_layers = nn.ModuleList()
         self.transformer_ffn_layers = nn.ModuleList()
-        ###------------------------------------------------------
+       
 
         self.src_embed = nn.Identity()
         self.fq_pos = nn.Embedding(self.num_frame_queries, config['input_dim'])
 
-        #### learnable query p.e.
+     
         self.query_embed = nn.Embedding(self.num_queries, config['input_dim'])
         self.query_feat = nn.Embedding(self.num_queries, config['input_dim'])
 
@@ -254,7 +250,7 @@ class MTI(nn.Module):
                     )
                 )
         
-        ### this is for decoder layer
+      
         for _ in range(self.num_layers):
             self.transformer_self_attention_layers.append(
                 SelfAttentionLayer(
@@ -284,38 +280,34 @@ class MTI(nn.Module):
             )
 
     def forward(self, frame_query):
-        """
-        params:
-        @frame_query: [L, BT, query, C]
-        """
+        
         if not self.training:
-            frame_query = frame_query[[-1]] #inference take the last layer
+            frame_query = frame_query[[-1]] 
         
         L, T, B, NQ, C = frame_query.shape
-        # B = BT // self.num_frames if self.training else 1
-        # T = self.num_frames if self.training else BT // B
+        
 
         frame_query = frame_query.reshape(L*B, T, NQ, C)
-        frame_query = frame_query.permute(1, 2, 0, 3).contiguous() #[t, query, L*B, C]
+        frame_query = frame_query.permute(1, 2, 0, 3).contiguous() 
 
         if self.window_size > 0:
             pad = int(ceil(T / self.window_size)) * self.window_size - T
             _T = pad + T
-            frame_query = F.pad(frame_query, (0,0,0,0,0,0,0,pad))   # _T, fQ, LB, C
-            enc_mask = frame_query.new_ones(L*B, _T).bool()         # LB, _T
+            frame_query = F.pad(frame_query, (0,0,0,0,0,0,0,pad))   
+            enc_mask = frame_query.new_ones(L*B, _T).bool()         
             enc_mask[:, :T] = False
         else:
             enc_mask = None
         
-        frame_query = self.encode_frame_query(frame_query, enc_mask) #windows attention
-        frame_query = frame_query[:T].flatten(0,1)              # TfQ, LB, C
+        frame_query = self.encode_frame_query(frame_query, enc_mask) 
+        frame_query = frame_query[:T].flatten(0,1)             
 
         src = self.src_embed(frame_query) #[T*NQ, LB, C] = [L B C]
         dec_pos = self.fq_pos.weight[None, :, None, :].repeat(T, 1, L*B, 1).flatten(0, 1)
         
-        query_embed = self.query_embed.weight.unsqueeze(1).repeat(1, L*B, 1) # cQ, LB, C
-        query_embed = self.query_embed.weight.unsqueeze(1).repeat(1, L*B, 1) # cQ, LB, C
-        output = self.query_feat.weight.unsqueeze(1).repeat(1, L*B, 1) # cQ, LB, C
+        query_embed = self.query_embed.weight.unsqueeze(1).repeat(1, L*B, 1) 
+        query_embed = self.query_embed.weight.unsqueeze(1).repeat(1, L*B, 1) 
+        output = self.query_feat.weight.unsqueeze(1).repeat(1, L*B, 1) 
        
 
         decoder_outputs = []
@@ -340,25 +332,20 @@ class MTI(nn.Module):
                 )
         
             if self.training or (i == self.num_layers - 1):
-                dec_out = self.decoder_norm(output) # cQ, LB, C
-                dec_out = dec_out.transpose(0, 1)   # LB, cQ, C
+                dec_out = self.decoder_norm(output) 
+                dec_out = dec_out.transpose(0, 1)   
                 decoder_outputs.append(dec_out.view(L, B, self.num_queries, C))
 
-        decoder_outputs = torch.stack(decoder_outputs, dim=0)   # D, L, B, cQ, C
+        decoder_outputs = torch.stack(decoder_outputs, dim=0)  
 
-        return decoder_outputs[-1] # L B queries C
-
+        return decoder_outputs[-1] 
 
     def encode_frame_query(self, frame_query, attn_mask):
-            """
-            input shape (frame_query)   : T, fQ, LB, C
-            output shape (frame_query)  : T, fQ, LB, C
-            """
-
-            # Not using window-based attention if self.window_size == 0.
+         
+            
             if self.window_size == 0:
-                return_shape = frame_query.shape        # T, fQ, LB, C
-                frame_query = frame_query.flatten(0, 1) # TfQ, LB, C
+                return_shape = frame_query.shape       
+                frame_query = frame_query.flatten(0, 1) 
 
                 for i in range(self.enc_layers):
                     frame_query = self.enc_self_attn[i](frame_query)
@@ -366,7 +353,7 @@ class MTI(nn.Module):
 
                 frame_query = frame_query.view(return_shape)
                 return frame_query
-            # Using window-based attention if self.window_size > 0.
+            
             else:
                 T, fQ, LB, C = frame_query.shape
                 W = self.window_size
@@ -376,7 +363,7 @@ class MTI(nn.Module):
                 window_mask = attn_mask.view(LB*Nw, W)[..., None].repeat(1, 1, fQ).flatten(1)
 
                 _attn_mask  = torch.roll(attn_mask, half_W, 1)
-                _attn_mask  = _attn_mask.view(LB, Nw, W)[..., None].repeat(1, 1, 1, W)    # LB, Nw, W, W
+                _attn_mask  = _attn_mask.view(LB, Nw, W)[..., None].repeat(1, 1, 1, W)   
                 _attn_mask[:,  0] = _attn_mask[:,  0] | _attn_mask[:,  0].transpose(-2, -1)
                 _attn_mask[:, -1] = _attn_mask[:, -1] | _attn_mask[:, -1].transpose(-2, -1)
                 _attn_mask[:, 0, :half_W, half_W:] = True
