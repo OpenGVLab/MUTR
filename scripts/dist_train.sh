@@ -10,7 +10,7 @@ else
 fi
 CPUS_PER_TASK=${CPUS_PER_TASK:-12}
 
-PY_ARGS=${@:2}  # Any other arguments 
+PY_ARGS=${@:1}  # Any other arguments 
 python3 -m torch.distributed.launch --nproc_per_node=${GPUS_PER_NODE} --master_port=${PORT} --use_env \
     train.py \
     --with_box_refine \
