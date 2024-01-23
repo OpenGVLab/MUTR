@@ -2,7 +2,7 @@
 
 Official implementation of ['Referred by Multi-Modality: A Unified Temporal Transformer for Video Object Segmentation'](https://arxiv.org/abs/2305.16318).
 
-
+The paper has been accepted by **AAAI 2024** 🔥.
 <!-- <div align="center">
 <h1>
 <b>
