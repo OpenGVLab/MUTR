@@ -120,13 +120,14 @@ This repo is based on [ReferFormer](https://github.com/wjn922/ReferFormer/tree/m
 ## Citation
 
 ```
-@misc{yan2023referred,
-      title={Referred by Multi-Modality: A Unified Temporal Transformer for Video Object Segmentation}, 
-      author={Shilin Yan and Renrui Zhang and Ziyu Guo and Wenchao Chen and Wei Zhang and Hongyang Li and Yu Qiao and Zhongjiang He and Peng Gao},
-      year={2023},
-      eprint={2305.16318},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+@inproceedings{yan2024referred,
+  title={Referred by multi-modality: A unified temporal transformer for video object segmentation},
+  author={Yan, Shilin and Zhang, Renrui and Guo, Ziyu and Chen, Wenchao and Zhang, Wei and Li, Hongyang and Qiao, Yu and Dong, Hao and He, Zhongjiang and Gao, Peng},
+  booktitle={Proceedings of the AAAI Conference on Artificial Intelligence},
+  volume={38},
+  number={6},
+  pages={6449--6457},
+  year={2024}
 }
 ```
 
